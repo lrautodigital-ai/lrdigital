@@ -33,34 +33,16 @@ const leads = [
 const metrics = ["Triagem inteligente", "CRM atualizado", "Follow-up ativo"];
 
 const workflowStatus = [
-  "Equipe notificada",
-  "Follow-up programado",
-  "Handoff humano pronto",
+  { label: "Equipe notificada", icon: BellRing },
+  { label: "Follow-up programado", icon: CalendarClock },
+  { label: "Handoff humano pronto", icon: UserCheck },
 ];
 
 export function HeroAutomationPanel() {
   return (
     <Reveal delay={0.12} className="relative">
-      <div className="animate-float-slow absolute -left-5 top-16 hidden w-36 rounded-2xl border border-cyan-200/20 bg-[#0B1728]/90 p-3 text-xs text-cyan-50 shadow-glow backdrop-blur xl:block">
-        <div className="mb-2 flex items-center gap-2 font-semibold">
-          <BellRing className="size-4" aria-hidden="true" />
-          Alerta enviado
-        </div>
-        Comercial notificado com contexto.
-      </div>
-      <div className="animate-float-slower absolute -right-4 bottom-14 hidden w-40 rounded-2xl border border-violet-200/20 bg-[#121027]/90 p-3 text-xs text-violet-50 shadow-glow backdrop-blur xl:block">
-        <div className="mb-2 flex items-center gap-2 font-semibold">
-          <CalendarClock className="size-4" aria-hidden="true" />
-          Follow-up 24h
-        </div>
-        Retomada automática se não houver resposta.
-      </div>
-
       <div className="glass-card rounded-[1.6rem] p-3 sm:p-4">
         <div className="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#07101D]/95 p-4 sm:p-5">
-          <div className="absolute inset-x-8 top-28 h-px overflow-hidden bg-gradient-to-r from-transparent via-cyan-200/50 to-transparent">
-            <span className="animate-flow-line absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-transparent via-white to-transparent opacity-70" />
-          </div>
           <div className="mb-5 flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200/70">
@@ -76,6 +58,9 @@ export function HeroAutomationPanel() {
             <span className="animate-pulse rounded-full border border-emerald-200/20 bg-emerald-300/10 px-3 py-1 text-xs font-semibold text-emerald-100">
               Em fluxo
             </span>
+          </div>
+          <div className="relative mb-5 h-px overflow-hidden bg-gradient-to-r from-transparent via-cyan-200/50 to-transparent">
+            <span className="animate-flow-line absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-transparent via-white to-transparent opacity-70" />
           </div>
 
           <div className="grid gap-3">
@@ -123,13 +108,14 @@ export function HeroAutomationPanel() {
           </div>
 
           <div className="mb-4 grid gap-2 sm:grid-cols-3">
-            {workflowStatus.map((item) => (
+            {workflowStatus.map(({ label, icon: Icon }) => (
               <div
                 className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.035] px-3 py-2 text-[11px] font-semibold text-slate-200"
-                key={item}
+                key={label}
               >
                 <span className="size-2 rounded-full bg-cyan-200 shadow-[0_0_18px_rgba(34,211,238,.75)]" />
-                {item}
+                <Icon className="size-3.5 shrink-0 text-cyan-100" aria-hidden="true" />
+                {label}
               </div>
             ))}
           </div>

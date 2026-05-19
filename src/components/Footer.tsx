@@ -4,8 +4,10 @@ import {
   CONTACT_EMAIL,
   COMPANY_NAME,
   COMPANY_TAGLINE,
+  INSTAGRAM_LABEL,
   INSTAGRAM_URL,
   LINKEDIN_URL,
+  WHATSAPP_LABEL,
   WHATSAPP_URL,
   hasEmail,
   hasInstagram,
@@ -51,7 +53,7 @@ export function Footer() {
               {hasWhatsApp && (
                 <a className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-white" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
                   <MessageCircle className="size-4" aria-hidden="true" />
-                  WhatsApp
+                  {WHATSAPP_LABEL}
                 </a>
               )}
               {hasEmail && (
@@ -62,7 +64,7 @@ export function Footer() {
               )}
               {hasInstagram && (
                 <a className="text-sm text-slate-400 transition hover:text-white" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
-                  Instagram
+                  {INSTAGRAM_LABEL}
                 </a>
               )}
               {hasLinkedIn && (

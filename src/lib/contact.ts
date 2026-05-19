@@ -1,8 +1,8 @@
-// Preencha estes campos quando os canais oficiais da LR Digital estiverem definidos.
-// Enquanto estiverem vazios, o site evita publicar links falsos de WhatsApp/redes sociais.
-export const WHATSAPP_URL = "";
-export const CONTACT_EMAIL = "";
-export const INSTAGRAM_URL = "";
+export const WHATSAPP_URL = "https://wa.me/5571991801276";
+export const WHATSAPP_LABEL = "+55 71 99180-1276";
+export const CONTACT_EMAIL = "lrautodigital@gmail.com";
+export const INSTAGRAM_URL = "https://www.instagram.com/lrautodigital/";
+export const INSTAGRAM_LABEL = "@lrautodigital";
 export const LINKEDIN_URL = "";
 export const COMPANY_NAME = "LR Digital";
 export const COMPANY_TAGLINE = "Automação com inteligência";
