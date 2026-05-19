@@ -15,7 +15,7 @@ const faqs = [
   {
     question: "Vocês trabalham com as ferramentas que minha empresa já usa?",
     answer:
-      "Sim. O projeto é construído a partir do processo atual da empresa e pode se adaptar a WhatsApp, CRM, planilhas, formulários, canais digitais e ferramentas já adotadas.",
+      "Sim. O projeto pode ser adaptado às ferramentas já utilizadas, como WhatsApp, CRM, planilhas, formulários, e-mail, calendário e canais digitais.",
   },
   {
     question: "Preciso trocar minhas ferramentas atuais?",
@@ -35,7 +35,12 @@ const faqs = [
   {
     question: "É possível começar com um fluxo menor?",
     answer:
-      "Sim. O projeto pode começar de forma enxuta, evoluindo conforme os testes, volume de contatos e necessidades comerciais da operação.",
+      "Sim. A implementação pode começar por um fluxo essencial e evoluir para uma operação mais completa conforme testes, volume e necessidades.",
+  },
+  {
+    question: "Isso é uma plataforma pronta ou um projeto sob medida?",
+    answer:
+      "A LR Digital trabalha com implementação sob medida. Os módulos são combinados de acordo com o processo, canais e objetivos da empresa.",
   },
 ];
 

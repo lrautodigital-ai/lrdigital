@@ -88,6 +88,40 @@ section {
   mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
 
+.animate-flow-line {
+  animation: flow-line 3.4s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-slower {
+  animation: float-slow 7.5s ease-in-out infinite reverse;
+}
+
+@keyframes flow-line {
+  0% {
+    transform: translateX(-120%);
+  }
+  50% {
+    transform: translateX(260%);
+  }
+  100% {
+    transform: translateX(260%);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -2,6 +2,8 @@ import { Mail, MessageCircle } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import {
   CONTACT_EMAIL,
+  COMPANY_NAME,
+  COMPANY_TAGLINE,
   INSTAGRAM_URL,
   LINKEDIN_URL,
   WHATSAPP_URL,
@@ -30,7 +32,7 @@ export function Footer() {
           <p className="mt-5 max-w-md text-sm leading-7 text-slate-400">
             Automação comercial e IA aplicada para empresas que precisam organizar atendimento, leads, CRM e follow-up.
           </p>
-          <p className="mt-4 text-sm font-semibold text-cyan-100/75">Automação com inteligência</p>
+          <p className="mt-4 text-sm font-semibold text-cyan-100/75">{COMPANY_TAGLINE}</p>
         </div>
         <nav aria-label="Links do rodapé">
           <p className="mb-4 text-sm font-semibold text-white">Navegação</p>
@@ -70,14 +72,14 @@ export function Footer() {
               )}
             </div>
           ) : (
-            <p className="max-w-xs text-sm leading-7 text-slate-400">
-              Canais oficiais a confirmar.
-            </p>
+            <a className="inline-flex items-center gap-2 text-sm text-slate-400 transition hover:text-white" href="#contato">
+              Solicitar diagnóstico
+            </a>
           )}
         </div>
       </div>
       <div className="container mt-10 border-t border-white/10 pt-6 text-sm text-slate-500">
-        © 2026 LR Digital. Todos os direitos reservados.
+        © 2026 {COMPANY_NAME}. Todos os direitos reservados.
       </div>
     </footer>
   );

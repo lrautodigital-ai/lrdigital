@@ -87,7 +87,7 @@ export function ConceptDemo() {
                 Resumo para equipe
               </div>
               <p className="text-sm leading-7 text-slate-300">
-                Lead quer avaliação, tem intenção de agendamento e deve receber retorno humano com prioridade média/alta.
+                Lead interessado em avaliação. Pediu retorno rápido. Recomenda-se atendimento humano com prioridade média/alta.
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">

@@ -1,4 +1,4 @@
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { DIAGNOSTIC_URL, WHATSAPP_URL, hasWhatsApp } from "@/lib/contact";
@@ -36,11 +36,15 @@ export function CTASection() {
                 </Button>
               ) : (
                 <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-sm leading-6 text-slate-300">
-                  <div className="mb-2 flex items-center gap-2 font-semibold text-white">
-                    <MessageCircle className="size-4 text-cyan-100" aria-hidden="true" />
-                    Canal direto a confirmar
+                  <div className="mb-3 flex items-center gap-2 font-semibold text-white">
+                    <CheckCircle2 className="size-4 text-cyan-100" aria-hidden="true" />
+                    Diagnóstico inicial
                   </div>
-                  O botão de WhatsApp será ativado quando o número oficial for definido.
+                  <div className="grid gap-2 text-slate-300">
+                    <span>Canais de entrada</span>
+                    <span>Gargalos do atendimento</span>
+                    <span>Fluxo recomendado</span>
+                  </div>
                 </div>
               )}
             </div>

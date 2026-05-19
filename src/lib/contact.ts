@@ -4,6 +4,8 @@ export const WHATSAPP_URL = "";
 export const CONTACT_EMAIL = "";
 export const INSTAGRAM_URL = "";
 export const LINKEDIN_URL = "";
+export const COMPANY_NAME = "LR Digital";
+export const COMPANY_TAGLINE = "Automação com inteligência";
 
 export const DIAGNOSTIC_URL = WHATSAPP_URL || "#contato";
 

@@ -40,6 +40,7 @@ import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { HeroAutomationPanel } from "@/components/HeroAutomationPanel";
+import { IntegrationGrid } from "@/components/IntegrationGrid";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
@@ -110,7 +111,7 @@ const ecosystem = [
     icon: RefreshCcw,
     title: "Follow-up Engine",
     description:
-      "Cria lembretes e retomadas automáticas para leads sem resposta, oportunidades mornas e contatos em negociação.",
+      "Cria lembretes e retomadas automáticas para leads que não responderam, oportunidades mornas e negociações em andamento.",
     tags: ["Follow-up", "Lembretes", "Cadência"],
   },
   {
@@ -126,6 +127,20 @@ const ecosystem = [
     description:
       "Notifica recepção, vendas, gestão ou responsáveis quando uma oportunidade relevante entra no fluxo.",
     tags: ["Alertas", "Gestão", "Vendas"],
+  },
+  {
+    icon: UserCheck,
+    title: "Atendimento Assistido",
+    description:
+      "Apoia a equipe com informações organizadas, respostas orientadas e histórico acessível.",
+    tags: ["Equipe", "Contexto", "Histórico"],
+  },
+  {
+    icon: LineChart,
+    title: "Rastreabilidade Comercial",
+    description:
+      "Permite acompanhar origem, status, prioridade, evolução e pontos de perda no atendimento.",
+    tags: ["Rastreabilidade", "Status", "Gestão"],
   },
 ];
 
@@ -183,6 +198,57 @@ const lrApproach = [
   "Handoff humano com resumo",
   "Follow-up estruturado",
   "Limites claros para a IA",
+];
+
+const beforeItems = [
+  "Leads espalhados",
+  "Atendimento manual",
+  "Pouco contexto",
+  "Follow-up esquecido",
+  "CRM desatualizado",
+  "Equipe reagindo sem prioridade",
+];
+
+const afterItems = [
+  "Entrada centralizada",
+  "Triagem inteligente",
+  "Resumo para equipe",
+  "CRM atualizado",
+  "Alertas por prioridade",
+  "Follow-up estruturado",
+];
+
+const methodologyBlocks = [
+  {
+    icon: Network,
+    title: "Mapa de canais",
+    description: "Identificação das entradas, origens, formulários, campanhas e pontos de contato.",
+  },
+  {
+    icon: BrainCircuit,
+    title: "Matriz de intenção",
+    description: "Classificação do que cada contato quer, do que precisa e do caminho adequado.",
+  },
+  {
+    icon: Target,
+    title: "Critérios de prioridade",
+    description: "Regras para diferenciar oportunidades urgentes, estratégicas, mornas e frias.",
+  },
+  {
+    icon: UserCheck,
+    title: "Regras de handoff",
+    description: "Definição de quando a IA organiza e quando a equipe humana precisa assumir.",
+  },
+  {
+    icon: FileCheck2,
+    title: "Documentação do fluxo",
+    description: "Registro de mensagens, campos, integrações, exceções e próximos passos.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Testes com cenários reais",
+    description: "Validação com situações do atendimento antes da ativação da operação.",
+  },
 ];
 
 const processSteps = [
@@ -287,7 +353,7 @@ const plans = [
     highlighted: true,
   },
   {
-    title: "Advanced",
+    title: "Max",
     description:
       "Para empresas com operação mais robusta e necessidade de automação avançada.",
     items: [
@@ -339,7 +405,20 @@ function LeadJourneyStrip() {
   return (
     <section className="container py-8">
       <Reveal>
-        <div className="glass-card rounded-[1.6rem] p-4">
+        <div className="glass-card rounded-[1.6rem] p-4 sm:p-5">
+          <div className="mb-5 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200/70">
+                Da entrada do lead à ação da equipe.
+              </p>
+              <h2 className="text-xl font-semibold text-white sm:text-2xl">
+                Captura, triagem e ação em um fluxo rastreável.
+              </h2>
+            </div>
+            <p className="max-w-2xl text-sm leading-7 text-slate-300">
+              Um fluxo bem desenhado reduz perda de contexto, organiza prioridades e entrega para a equipe humana o que ela precisa para agir com velocidade.
+            </p>
+          </div>
           <div className="grid gap-3 md:grid-cols-5">
             {journeySteps.map(({ icon: Icon, title, description }, index) => (
               <div className="relative rounded-2xl border border-white/10 bg-white/[0.035] p-4" key={title}>
@@ -374,10 +453,10 @@ export default function Home() {
                 Implementação de automação e IA sob medida
               </div>
               <h1 className="max-w-3xl text-balance text-4xl font-semibold leading-[1.04] text-white sm:text-5xl lg:text-[4.05rem] xl:text-[4.25rem]">
-                Automação e IA para transformar contatos dispersos em uma operação comercial organizada.
+                Transforme contatos dispersos em uma operação comercial inteligente.
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-                A LR Digital estrutura fluxos inteligentes para captar, classificar, registrar, direcionar e acompanhar leads com mais velocidade, contexto e controle humano.
+                A LR Digital implementa automação e IA para captar, classificar, registrar, direcionar e acompanhar leads com mais velocidade, contexto e controle humano.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button href={DIAGNOSTIC_URL} size="lg">
@@ -410,7 +489,7 @@ export default function Home() {
         <section className="container py-16">
           <SectionHeader
             eyebrow="Problema"
-            title="Empresas perdem oportunidades não por falta de leads, mas por falta de processo."
+            title="Empresas não perdem oportunidades apenas por falta de leads. Perdem por falta de processo."
             description="Muitos contatos chegam pelo WhatsApp, site, Instagram, formulários e anúncios. Sem triagem, registro e acompanhamento, a equipe responde de forma manual, perde contexto e deixa oportunidades importantes sem retorno."
           />
           <div className="grid gap-4 lg:grid-cols-[1.1fr_1.4fr]">
@@ -426,7 +505,7 @@ export default function Home() {
                   O lead chega, mas o processo não acompanha.
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-slate-300">
-                  Mensagens ficam espalhadas, o contexto se perde e o follow-up depende de memória manual.
+                  O lead chega, mas o processo não acompanha: mensagens ficam espalhadas, o contexto se perde, a prioridade não fica clara e o follow-up depende de memória manual.
                 </p>
               </article>
             </Reveal>
@@ -445,13 +524,69 @@ export default function Home() {
             description="A LR Digital estrutura automações que recebem, organizam, classificam e encaminham contatos para a equipe certa, com dados limpos, contexto e próximos passos claros."
           />
           <AutomationFlowVisual />
+          <div className="mt-6">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200/70">
+              Canais e sistemas que podem compor a arquitetura
+            </p>
+            <IntegrationGrid />
+          </div>
+        </section>
+
+        <section className="container py-16">
+          <SectionHeader
+            eyebrow="Antes e depois"
+            title="Antes: atendimento disperso. Depois: operação organizada."
+            description="A diferença não está em automatizar tudo. Está em criar um processo claro para captar, priorizar, registrar e encaminhar cada oportunidade."
+          />
+          <div className="grid gap-5 lg:grid-cols-2">
+            <Reveal>
+              <article className="h-full rounded-[1.7rem] border border-rose-200/10 bg-rose-300/[0.035] p-6">
+                <div className="mb-5 flex items-center justify-between gap-4">
+                  <h3 className="text-2xl font-semibold text-white">Antes</h3>
+                  <span className="rounded-full border border-rose-200/15 bg-rose-300/10 px-3 py-1 text-xs font-semibold text-rose-100">
+                    Disperso
+                  </span>
+                </div>
+                <div className="grid gap-3">
+                  {beforeItems.map((item) => (
+                    <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.035] p-3 text-sm text-slate-300" key={item}>
+                      <span className="grid size-7 shrink-0 place-items-center rounded-full bg-rose-300/10 text-rose-200">
+                        <X className="size-4" aria-hidden="true" />
+                      </span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </article>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <article className="glass-card h-full rounded-[1.7rem] p-6 ring-1 ring-cyan-200/10">
+                <div className="mb-5 flex items-center justify-between gap-4">
+                  <h3 className="text-2xl font-semibold text-white">Depois</h3>
+                  <span className="rounded-full border border-cyan-200/20 bg-cyan-200/10 px-3 py-1 text-xs font-semibold text-cyan-100">
+                    Rastreável
+                  </span>
+                </div>
+                <div className="grid gap-3">
+                  {afterItems.map((item) => (
+                    <div className="flex items-center gap-3 rounded-2xl border border-cyan-200/10 bg-cyan-200/[0.065] p-3 text-sm text-slate-100" key={item}>
+                      <span className="grid size-7 shrink-0 place-items-center rounded-full bg-cyan-300/15 text-cyan-100">
+                        <CheckCircle2 className="size-4" aria-hidden="true" />
+                      </span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </article>
+            </Reveal>
+          </div>
         </section>
 
         <section id="solucoes" className="container py-16">
           <SectionHeader
             eyebrow="Ecossistema LR Digital"
             title="Um ecossistema de automação e IA para sua operação comercial."
-            description="Cada módulo pode ser implementado de forma independente ou combinado em um fluxo completo, de acordo com canais, equipe, volume de contatos e maturidade comercial."
+            description="Cada módulo pode ser implementado de forma independente ou combinado em uma estrutura completa, conforme canais, equipe, volume de contatos e maturidade comercial. São componentes de implementação, não um SaaS genérico pronto."
           />
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {ecosystem.map((solution, index) => (
@@ -520,6 +655,19 @@ export default function Home() {
                 </div>
               </article>
             </Reveal>
+          </div>
+        </section>
+
+        <section className="container py-16">
+          <SectionHeader
+            eyebrow="Metodologia de implementação"
+            title="Antes da automação, vem a arquitetura do processo."
+            description="A LR Digital estrutura o fluxo antes de conectar ferramentas. Isso reduz automações soltas, respostas mecânicas e falhas operacionais."
+          />
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {methodologyBlocks.map((block, index) => (
+              <FeatureCard {...block} delay={index * 0.035} key={block.title} />
+            ))}
           </div>
         </section>
 

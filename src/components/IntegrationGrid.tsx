@@ -7,6 +7,7 @@ import {
   FormInput,
   Globe2,
   Mail,
+  Megaphone,
   MessageCircle,
   Users,
 } from "lucide-react";
@@ -17,6 +18,7 @@ const integrations = [
   { label: "Instagram", icon: Camera },
   { label: "Site", icon: Globe2 },
   { label: "Formulários", icon: FormInput },
+  { label: "Anúncios", icon: Megaphone },
   { label: "CRM", icon: ClipboardList },
   { label: "Google Sheets", icon: FileText },
   { label: "E-mail", icon: Mail },
@@ -28,7 +30,7 @@ const integrations = [
 export function IntegrationGrid() {
   return (
     <Reveal>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         {integrations.map(({ label, icon: Icon }, index) => (
           <div
             className="rounded-2xl border border-white/10 bg-white/[0.035] p-4 text-center transition hover:-translate-y-1 hover:border-cyan-200/35 hover:bg-white/[0.06]"
