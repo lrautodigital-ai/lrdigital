@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #05070d;
+  --foreground: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.15), transparent 32rem),
+    radial-gradient(circle at top right, rgba(139, 92, 246, 0.12), transparent 34rem),
+    #05070d;
+  background-size: 48px 48px, 48px 48px, auto, auto, auto;
+  color: var(--foreground);
+  font-family: Inter, Manrope, Geist, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0;
+}
+
+body::selection {
+  background: rgba(34, 211, 238, 0.28);
+  color: #ffffff;
+}
+
+a,
+button {
+  outline-offset: 4px;
+}
+
+section {
+  scroll-margin-top: 96px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.glass-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
+    rgba(8, 12, 24, 0.72);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(18px);
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.09), transparent);
+  opacity: 0;
+  transform: translateX(-40%);
+  transition: opacity 220ms ease, transform 700ms ease;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+  transform: translateX(45%);
+}
+
+.thin-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.mask-fade-bottom {
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

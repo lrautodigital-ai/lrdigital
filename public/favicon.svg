@@ -1,0 +1,10 @@
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">LR V2 symbol reverse</title>
+  <desc id="desc">Reverse linear premium LR monogram with automation flow nodes.</desc>
+  <path d="M124 112V510H292" stroke="#F7FAF8" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M362 510V112H484C536 112 568 144 568 194V230C568 280 536 312 484 312H362" stroke="#F7FAF8" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M424 312L552 510" stroke="#19B08A" stroke-width="64" stroke-linecap="round"/>
+  <circle cx="124" cy="112" r="26" fill="#19B08A"/>
+  <circle cx="292" cy="510" r="26" fill="#19B08A"/>
+  <circle cx="552" cy="510" r="26" fill="#19B08A"/>
+</svg>

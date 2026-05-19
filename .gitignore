@@ -1,0 +1,29 @@
+# dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# production
+build/
+
+# local env
+.env*
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# local verification artifacts
+.playwright-cli/
+output/
+
+# local brand source package; production assets are copied to public/brand
+LR Digital - Logo e Identidade Visual/
+
+# system
+.DS_Store
+Thumbs.db
