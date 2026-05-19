@@ -13,6 +13,11 @@ const faqs = [
       "Não. A IA deve operar com contexto, regras e limites definidos. Em situações sensíveis ou comerciais importantes, o fluxo pode encaminhar para uma pessoa.",
   },
   {
+    question: "Vocês trabalham com as ferramentas que minha empresa já usa?",
+    answer:
+      "Sim. O projeto é construído a partir do processo atual da empresa e pode se adaptar a WhatsApp, CRM, planilhas, formulários, canais digitais e ferramentas já adotadas.",
+  },
+  {
     question: "Preciso trocar minhas ferramentas atuais?",
     answer:
       "Não necessariamente. O projeto pode ser adaptado às ferramentas já utilizadas, como WhatsApp, CRM, planilhas, formulários e canais atuais.",
@@ -28,9 +33,9 @@ const faqs = [
       "Sim. Cada fluxo é desenhado de acordo com canais, equipe, tipo de atendimento, linguagem e objetivos da empresa.",
   },
   {
-    question: "Posso começar com uma estrutura menor?",
+    question: "É possível começar com um fluxo menor?",
     answer:
-      "Sim. É possível começar com um fluxo essencial e evoluir para uma operação mais completa conforme os resultados e necessidades.",
+      "Sim. O projeto pode começar de forma enxuta, evoluindo conforme os testes, volume de contatos e necessidades comerciais da operação.",
   },
 ];
 
@@ -38,8 +43,8 @@ export function FAQ() {
   return (
     <div className="mx-auto max-w-4xl space-y-3">
       {faqs.map((item, index) => (
-        <Reveal delay={index * 0.04} key={item.question}>
-          <details className="group rounded-2xl border border-white/10 bg-white/[0.035] p-5 open:bg-white/[0.055]">
+        <Reveal delay={index * 0.035} key={item.question}>
+          <details className="group rounded-2xl border border-white/10 bg-white/[0.035] p-5 transition open:border-cyan-200/25 open:bg-white/[0.055]">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-semibold text-white">
               {item.question}
               <ChevronDown className="size-5 shrink-0 text-cyan-100 transition group-open:rotate-180" aria-hidden="true" />

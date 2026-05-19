@@ -1,78 +1,105 @@
-import { ArrowRight, Bell, CalendarClock, CheckCircle2, MessageCircle, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  BellRing,
+  CalendarClock,
+  CheckCircle2,
+  MessageCircle,
+  Sparkles,
+  UserCheck,
+} from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 const leads = [
   {
-    name: "Mariana Costa",
-    source: "WhatsApp",
+    label: "Lead recebido",
+    value: "Mariana Costa",
+    meta: "Origem: WhatsApp · Intenção: avaliação",
     status: "Alta",
-    intent: "Avaliação",
-    color: "text-emerald-200 bg-emerald-300/10 border-emerald-200/20",
   },
   {
-    name: "Grupo Atlas",
-    source: "Site",
-    status: "Média",
-    intent: "Proposta B2B",
-    color: "text-cyan-200 bg-cyan-300/10 border-cyan-200/20",
+    label: "IA aplicada",
+    value: "Resumo gerado",
+    meta: "Urgência média/alta · precisa de humano",
+    status: "Pronto",
   },
   {
-    name: "Lead portal",
-    source: "Formulário",
-    status: "Baixa",
-    intent: "Dúvida inicial",
-    color: "text-violet-200 bg-violet-300/10 border-violet-200/20",
+    label: "CRM",
+    value: "Registro criado",
+    meta: "Contato, origem, interesse e tarefa",
+    status: "Sync",
   },
+];
+
+const metrics = [
+  "Triagem inteligente",
+  "CRM atualizado",
+  "Follow-up estruturado",
 ];
 
 export function HeroAutomationPanel() {
   return (
-    <Reveal delay={0.15} className="relative">
-      <div className="absolute -left-8 top-12 hidden w-28 rounded-2xl border border-cyan-200/15 bg-cyan-200/10 p-3 text-xs text-cyan-50 shadow-glow backdrop-blur xl:block">
-        <div className="mb-2 flex items-center gap-2">
-          <Bell className="size-4" aria-hidden="true" />
-          Alerta
+    <Reveal delay={0.12} className="relative">
+      <div className="absolute -left-5 top-16 hidden w-36 rounded-2xl border border-cyan-200/20 bg-[#0B1728]/90 p-3 text-xs text-cyan-50 shadow-glow backdrop-blur xl:block">
+        <div className="mb-2 flex items-center gap-2 font-semibold">
+          <BellRing className="size-4" aria-hidden="true" />
+          Alerta enviado
         </div>
-        Lead prioritário recebido
+        Comercial notificado com contexto.
       </div>
-      <div className="absolute -right-6 bottom-10 hidden w-36 rounded-2xl border border-violet-200/15 bg-violet-200/10 p-3 text-xs text-violet-50 shadow-glow backdrop-blur xl:block">
-        <div className="mb-2 flex items-center gap-2">
+      <div className="absolute -right-4 bottom-14 hidden w-40 rounded-2xl border border-violet-200/20 bg-[#121027]/90 p-3 text-xs text-violet-50 shadow-glow backdrop-blur xl:block">
+        <div className="mb-2 flex items-center gap-2 font-semibold">
           <CalendarClock className="size-4" aria-hidden="true" />
-          Follow-up
+          Follow-up 24h
         </div>
-        Retomar em 24h
+        Retomada automática se não houver resposta.
       </div>
-      <div className="glass-card rounded-[1.7rem] p-3 sm:p-4">
-        <div className="rounded-[1.35rem] border border-white/10 bg-[#07101D]/88 p-4 sm:p-5">
-          <div className="mb-5 flex items-center justify-between gap-4">
+
+      <div className="glass-card rounded-[1.6rem] p-3 sm:p-4">
+        <div className="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#07101D]/95 p-4 sm:p-5">
+          <div className="absolute inset-x-8 top-28 h-px bg-gradient-to-r from-transparent via-cyan-200/50 to-transparent" />
+          <div className="mb-5 flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200/70">
-                Operação comercial
+                Visual conceitual
               </p>
-              <h3 className="mt-2 text-xl font-semibold text-white">Pipeline inteligente</h3>
+              <h3 className="mt-2 text-xl font-semibold text-white sm:text-2xl">
+                Central de Operação Comercial
+              </h3>
+              <p className="mt-2 text-xs leading-5 text-slate-400">
+                Modelo de operação implementado com canais, IA, CRM e equipe.
+              </p>
             </div>
             <span className="rounded-full border border-emerald-200/20 bg-emerald-300/10 px-3 py-1 text-xs font-semibold text-emerald-100">
-              Ativo
+              Em fluxo
             </span>
           </div>
 
           <div className="grid gap-3">
-            {leads.map((lead) => (
+            {leads.map((lead, index) => (
               <div
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition hover:border-cyan-200/25 hover:bg-white/[0.065]"
-                key={lead.name}
+                className="relative rounded-2xl border border-white/10 bg-white/[0.045] p-4 transition hover:border-cyan-200/30 hover:bg-white/[0.065]"
+                key={lead.label}
               >
-                <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
-                      <MessageCircle className="size-4 shrink-0 text-cyan-200" aria-hidden="true" />
-                      <p className="truncate text-sm font-semibold text-white">{lead.name}</p>
+                      <span className="grid size-8 shrink-0 place-items-center rounded-xl bg-cyan-200/10 text-cyan-100 ring-1 ring-cyan-100/15">
+                        {index === 0 ? (
+                          <MessageCircle className="size-4" aria-hidden="true" />
+                        ) : index === 1 ? (
+                          <Sparkles className="size-4" aria-hidden="true" />
+                        ) : (
+                          <CheckCircle2 className="size-4" aria-hidden="true" />
+                        )}
+                      </span>
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                        {lead.label}
+                      </p>
                     </div>
-                    <p className="mt-2 text-xs leading-5 text-slate-400">
-                      Origem: {lead.source} · Intenção: {lead.intent}
-                    </p>
+                    <p className="mt-3 text-sm font-semibold text-white">{lead.value}</p>
+                    <p className="mt-1 text-xs leading-5 text-slate-400">{lead.meta}</p>
                   </div>
-                  <span className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold ${lead.color}`}>
+                  <span className="rounded-full border border-cyan-200/20 bg-cyan-200/10 px-2.5 py-1 text-[11px] font-semibold text-cyan-100">
                     {lead.status}
                   </span>
                 </div>
@@ -80,42 +107,33 @@ export function HeroAutomationPanel() {
             ))}
           </div>
 
-          <div className="my-4 flex items-center gap-2 text-cyan-100/70">
-            <span className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-200/30 to-cyan-200/10" />
-            <Sparkles className="size-4" aria-hidden="true" />
-            <span className="h-px flex-1 bg-gradient-to-l from-transparent via-violet-200/30 to-violet-200/10" />
+          <div className="my-4 grid grid-cols-3 gap-2">
+            {metrics.map((metric) => (
+              <div
+                className="rounded-2xl border border-white/10 bg-white/[0.035] p-3 text-center text-[11px] font-semibold text-slate-200"
+                key={metric}
+              >
+                {metric}
+              </div>
+            ))}
           </div>
 
-          <div className="rounded-2xl border border-cyan-200/15 bg-cyan-200/[0.06] p-4">
-            <div className="flex items-start gap-3">
-              <div className="grid size-9 shrink-0 place-items-center rounded-xl bg-cyan-200/10 text-cyan-100">
-                <Sparkles className="size-4" aria-hidden="true" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-white">Resumo gerado para a equipe</p>
-                <p className="mt-2 text-sm leading-6 text-slate-300">
-                  Lead interessado em avaliação, pediu retorno rápido e deve ser encaminhado para atendimento humano com prioridade média/alta.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto]">
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+          <div className="grid gap-3 lg:grid-cols-[1fr_auto]">
+            <div className="rounded-2xl border border-cyan-200/15 bg-cyan-200/[0.06] p-4">
               <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-white">
-                <CheckCircle2 className="size-4 text-emerald-200" aria-hidden="true" />
-                CRM atualizado
+                <UserCheck className="size-4 text-cyan-100" aria-hidden="true" />
+                Handoff humano pronto
               </div>
-              <p className="text-xs leading-5 text-slate-400">
-                Nome, origem, interesse, status e próxima ação registrados.
+              <p className="text-sm leading-6 text-slate-300">
+                Resumo, prioridade, origem e próxima ação ficam disponíveis antes da equipe assumir.
               </p>
             </div>
             <button
               type="button"
               className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-white px-5 text-sm font-semibold text-[#07101f] transition hover:bg-cyan-50"
-              aria-label="Botão ilustrativo: enviar para equipe"
+              aria-label="Botão ilustrativo: encaminhar oportunidade"
             >
-              Enviar para equipe
+              Encaminhar oportunidade
               <ArrowRight className="size-4" aria-hidden="true" />
             </button>
           </div>

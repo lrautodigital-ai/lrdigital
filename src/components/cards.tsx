@@ -14,8 +14,8 @@ type FeatureCardProps = {
 export function FeatureCard({ icon: Icon, title, description, delay = 0 }: FeatureCardProps) {
   return (
     <Reveal delay={delay} className="h-full">
-      <article className="glass-card h-full rounded-2xl p-6 transition duration-200 hover:-translate-y-1 hover:border-cyan-200/35">
-        <div className="mb-5 inline-flex size-11 items-center justify-center rounded-xl border border-cyan-200/15 bg-cyan-200/10 text-cyan-100">
+      <article className="glass-card h-full rounded-2xl p-5 transition duration-200 hover:-translate-y-1 hover:border-cyan-200/35">
+        <div className="mb-4 inline-flex size-11 items-center justify-center rounded-xl border border-cyan-200/15 bg-cyan-200/10 text-cyan-100">
           <Icon className="size-5" aria-hidden="true" />
         </div>
         <h3 className="text-lg font-semibold text-white">{title}</h3>
@@ -30,6 +30,8 @@ type SolutionCardProps = {
   title: string;
   description: string;
   index: string;
+  tags?: string[];
+  featured?: boolean;
   delay?: number;
 };
 
@@ -38,19 +40,38 @@ export function SolutionCard({
   title,
   description,
   index,
+  tags = [],
+  featured = false,
   delay = 0,
 }: SolutionCardProps) {
   return (
-    <Reveal delay={delay} className="h-full">
-      <article className="group glass-card h-full rounded-2xl p-6 transition duration-200 hover:-translate-y-1 hover:border-violet-200/35">
+    <Reveal delay={delay} className={cn("h-full", featured && "md:col-span-2")}>
+      <article
+        className={cn(
+          "group glass-card flex h-full flex-col rounded-2xl p-6 transition duration-200 hover:-translate-y-1",
+          featured ? "border-cyan-200/35 bg-cyan-200/[0.065]" : "hover:border-violet-200/35",
+        )}
+      >
         <div className="mb-7 flex items-center justify-between gap-4">
           <span className="text-xs font-semibold tracking-[0.24em] text-slate-500">{index}</span>
-          <span className="grid size-10 place-items-center rounded-xl bg-white/[0.05] text-cyan-100 ring-1 ring-white/10 transition group-hover:text-white">
+          <span className="grid size-11 place-items-center rounded-xl bg-white/[0.05] text-cyan-100 ring-1 ring-white/10 transition group-hover:text-white">
             <Icon className="size-5" aria-hidden="true" />
           </span>
         </div>
         <h3 className="text-xl font-semibold leading-snug text-white">{title}</h3>
         <p className="mt-4 text-sm leading-7 text-slate-300">{description}</p>
+        {tags.length > 0 && (
+          <div className="mt-6 flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span
+                className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[11px] font-medium text-slate-300"
+                key={tag}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </article>
     </Reveal>
   );
@@ -59,7 +80,8 @@ export function SolutionCard({
 type UseCaseCardProps = {
   icon: LucideIcon;
   title: string;
-  description: string;
+  pain: string;
+  action: string;
   examples: string[];
   delay?: number;
 };
@@ -67,7 +89,8 @@ type UseCaseCardProps = {
 export function UseCaseCard({
   icon: Icon,
   title,
-  description,
+  pain,
+  action,
   examples,
   delay = 0,
 }: UseCaseCardProps) {
@@ -80,7 +103,20 @@ export function UseCaseCard({
           </div>
           <h3 className="text-xl font-semibold text-white">{title}</h3>
         </div>
-        <p className="text-sm leading-7 text-slate-300">{description}</p>
+        <div className="grid gap-4">
+          <div>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+              Dor operacional
+            </p>
+            <p className="text-sm leading-7 text-slate-300">{pain}</p>
+          </div>
+          <div>
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200/70">
+              Como atuamos
+            </p>
+            <p className="text-sm leading-7 text-slate-300">{action}</p>
+          </div>
+        </div>
         <div className="mt-5 flex flex-wrap gap-2">
           {examples.map((example) => (
             <span
@@ -91,14 +127,8 @@ export function UseCaseCard({
             </span>
           ))}
         </div>
-        <Button
-          href="#contato"
-          variant="secondary"
-          size="sm"
-          className="mt-6 w-fit"
-          aria-label={`Ver aplicação para ${title}`}
-        >
-          Ver aplicação
+        <Button href="#contato" variant="secondary" size="sm" className="mt-6 w-fit">
+          Ver fluxo recomendado
           <ArrowRight className="size-4" aria-hidden="true" />
         </Button>
       </article>
@@ -146,9 +176,9 @@ export function ProcessStep({
   className,
 }: ProcessStepProps) {
   return (
-    <Reveal delay={delay} className={cn("relative", className)}>
-      <article className="glass-card rounded-2xl p-6">
-        <div className="mb-6 flex items-center justify-between gap-4">
+    <Reveal delay={delay} className={cn("relative h-full", className)}>
+      <article className="glass-card flex h-full flex-col rounded-2xl p-5">
+        <div className="mb-5 flex items-center justify-between gap-4">
           <span className="text-sm font-semibold text-cyan-100">{index}</span>
           <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-slate-300">
             {status}

@@ -1,30 +1,33 @@
 import {
   ArrowRight,
   BellRing,
+  Boxes,
   BrainCircuit,
   Building2,
   CalendarCheck,
-  CalendarX2,
   CheckCircle2,
   ClipboardCheck,
   DatabaseZap,
   FileCheck2,
   GraduationCap,
+  Handshake,
   HeartPulse,
   History,
   Layers3,
   LineChart,
   LockKeyhole,
-  MessageCircle,
   Network,
+  Radar,
   RefreshCcw,
   Route,
+  Shield,
   ShieldCheck,
   Sparkles,
   Split,
   Stethoscope,
   Target,
   TimerReset,
+  UserCheck,
   UsersRound,
   Workflow,
   X,
@@ -37,95 +40,92 @@ import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { HeroAutomationPanel } from "@/components/HeroAutomationPanel";
-import { IntegrationGrid } from "@/components/IntegrationGrid";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { FeatureCard, MetricCard, ProcessStep, SolutionCard, UseCaseCard } from "@/components/cards";
-import { WHATSAPP_URL } from "@/lib/contact";
+import { DIAGNOSTIC_URL } from "@/lib/contact";
 
-const heroBadges = [
-  "IA aplicada ao processo",
-  "CRM + WhatsApp + Follow-up",
-  "Atendimento humano com mais contexto",
-  "Automação sob medida",
+const heroIndicators = [
+  { label: "Triagem inteligente", detail: "intenção e prioridade" },
+  { label: "CRM atualizado", detail: "histórico e tarefas" },
+  { label: "Follow-up estruturado", detail: "retomadas e alertas" },
+];
+
+const journeySteps = [
+  { icon: Split, title: "Captura", description: "canais digitais" },
+  { icon: BrainCircuit, title: "Triagem", description: "IA com contexto" },
+  { icon: DatabaseZap, title: "Registro", description: "CRM e histórico" },
+  { icon: UsersRound, title: "Distribuição", description: "equipe certa" },
+  { icon: RefreshCcw, title: "Follow-up", description: "rastreabilidade" },
 ];
 
 const problemCards = [
   {
     icon: Network,
-    title: "Leads espalhados em vários canais",
-    description:
-      "Contatos chegam por WhatsApp, site, Instagram e formulários sem uma visão única da operação.",
+    title: "Canais dispersos",
+    description: "WhatsApp, site, Instagram, formulários e anúncios sem visão única.",
   },
   {
     icon: TimerReset,
-    title: "Respostas demoradas ou inconsistentes",
-    description:
-      "A equipe alterna entre conversas manuais, perde padrão e deixa oportunidades esperando.",
+    title: "Atendimento sem prioridade",
+    description: "Oportunidades urgentes competem com contatos frios no mesmo fluxo.",
   },
   {
     icon: History,
-    title: "Falta de histórico e prioridade",
-    description:
-      "Sem registro limpo, fica difícil saber quem é urgente, quem já foi atendido e qual é o próximo passo.",
-  },
-  {
-    icon: CalendarX2,
-    title: "Follow-up esquecido ou tardio",
-    description:
-      "Leads mornos deixam de ser retomados no momento certo e oportunidades importantes perdem força.",
-  },
-];
-
-const solutions = [
-  {
-    icon: Split,
-    title: "Captação e centralização de leads",
-    description:
-      "Unifique contatos vindos de WhatsApp, site, formulários, landing pages, Instagram, anúncios e portais.",
-  },
-  {
-    icon: BrainCircuit,
-    title: "Triagem inteligente com IA",
-    description:
-      "Classifique intenção, urgência, perfil, prioridade e etapa do atendimento antes da equipe assumir.",
-  },
-  {
-    icon: DatabaseZap,
-    title: "CRM e organização comercial",
-    description:
-      "Registre contatos, negócios, tarefas e histórico para que a equipe tenha controle do processo.",
-  },
-  {
-    icon: MessageCircle,
-    title: "WhatsApp e resposta inicial",
-    description:
-      "Envie respostas iniciais, colete informações e direcione o lead sem tornar o atendimento mecânico.",
-  },
-  {
-    icon: RefreshCcw,
-    title: "Follow-up automático",
-    description:
-      "Retome contatos que não responderam, leads mornos e oportunidades que precisam de acompanhamento.",
-  },
-  {
-    icon: UsersRound,
-    title: "Handoff para equipe humana",
-    description:
-      "Entregue para o atendente ou vendedor um resumo claro do contato, com contexto e próxima ação recomendada.",
+    title: "CRM incompleto",
+    description: "Histórico, origem e próxima ação ficam dependentes de registro manual.",
   },
   {
     icon: BellRing,
-    title: "Alertas internos",
+    title: "Follow-up inconsistente",
+    description: "Retomadas importantes acontecem tarde ou simplesmente não acontecem.",
+  },
+];
+
+const ecosystem = [
+  {
+    icon: Boxes,
+    title: "LeadOps IA",
     description:
-      "Notifique equipe comercial, recepção ou gestores quando um lead importante entrar.",
+      "Recebe contatos de múltiplos canais, organiza dados e transforma mensagens soltas em oportunidades estruturadas.",
+    tags: ["WhatsApp", "Site", "LeadOps"],
+    featured: true,
   },
   {
-    icon: LineChart,
-    title: "Relatórios e rastreabilidade",
+    icon: BrainCircuit,
+    title: "Triagem Inteligente",
     description:
-      "Acompanhe origem, status, prioridade, tempo de resposta e evolução dos contatos.",
+      "Classifica intenção, urgência, perfil, serviço de interesse e prioridade antes do atendimento humano.",
+    tags: ["IA", "Prioridade", "Contexto"],
+  },
+  {
+    icon: DatabaseZap,
+    title: "CRM Sync",
+    description:
+      "Registra contatos, negócios, tarefas e histórico em CRM, planilhas ou sistemas já utilizados pela empresa.",
+    tags: ["CRM", "Planilhas", "Histórico"],
+  },
+  {
+    icon: RefreshCcw,
+    title: "Follow-up Engine",
+    description:
+      "Cria lembretes e retomadas automáticas para leads sem resposta, oportunidades mornas e contatos em negociação.",
+    tags: ["Follow-up", "Lembretes", "Cadência"],
+  },
+  {
+    icon: UserCheck,
+    title: "Handoff Hub",
+    description:
+      "Entrega para a equipe um resumo claro do atendimento, com contexto, próxima ação e informações importantes.",
+    tags: ["Equipe", "Resumo", "Humano"],
+  },
+  {
+    icon: BellRing,
+    title: "Alertas Operacionais",
+    description:
+      "Notifica recepção, vendas, gestão ou responsáveis quando uma oportunidade relevante entra no fluxo.",
+    tags: ["Alertas", "Gestão", "Vendas"],
   },
 ];
 
@@ -133,36 +133,37 @@ const useCases = [
   {
     icon: HeartPulse,
     title: "Clínicas e saúde particular",
-    description:
-      "Triagem de pacientes, agendamento, dúvidas sobre procedimentos, encaminhamento por especialidade e follow-up de interessados.",
-    examples: [
-      "avaliação",
-      "procedimento",
-      "agendamento",
-      "retorno",
-      "resumo para recepção",
-    ],
+    pain:
+      "Pacientes chegam com dúvidas, pedem avaliação, somem antes do agendamento e exigem atendimento cuidadoso.",
+    action:
+      "Estruturamos triagem por procedimento, resumo para recepção, encaminhamento por especialidade e follow-up de avaliação.",
+    examples: ["procedimento", "agendamento", "recepção", "avaliação", "especialidade"],
   },
   {
     icon: Building2,
     title: "Imobiliárias e incorporadoras",
-    description:
-      "Organização de leads de compra, locação, venda, lançamentos, proprietários e investidores.",
-    examples: ["faixa de valor", "proprietário", "investidor", "portal", "follow-up"],
+    pain:
+      "Leads chegam de portais, WhatsApp, site e anúncios, misturando compradores, locatários, proprietários e investidores.",
+    action:
+      "Organizamos intenção, faixa de valor, bairro, tipo de imóvel, proprietário anunciante e follow-up por estágio.",
+    examples: ["compra", "locação", "bairro", "faixa de valor", "proprietário"],
   },
   {
     icon: GraduationCap,
     title: "Educação e cursos",
-    description:
-      "Captação de interessados, dúvidas sobre matrícula, turmas, valores, bolsas, agendamento de visita e nutrição de leads.",
-    examples: ["matrícula", "turmas", "valores", "bolsas", "visita"],
+    pain:
+      "Interessados perguntam sobre preço, matrícula, turmas e bolsas, mas nem todos estão prontos para decidir.",
+    action:
+      "Desenhamos triagem de interesse, agendamento de visita, nutrição, lembretes de matrícula e distribuição comercial.",
+    examples: ["matrícula", "turmas", "bolsas", "visita", "nutrição"],
   },
   {
     icon: Stethoscope,
     title: "Serviços consultivos B2B",
-    description:
-      "Qualificação de oportunidades, coleta de informações, priorização comercial, CRM e acompanhamento até a reunião.",
-    examples: ["qualificação", "briefing", "priorização", "reunião", "proposta"],
+    pain: "Leads precisam ser qualificados antes da reunião e acompanhados até a proposta.",
+    action:
+      "Criamos briefing inicial, qualificação, priorização, CRM, alerta para comercial e acompanhamento até a decisão.",
+    examples: ["briefing", "qualificação", "priorização", "CRM", "proposta"],
   },
 ];
 
@@ -188,44 +189,44 @@ const processSteps = [
   {
     icon: Target,
     title: "Diagnóstico",
-    status: "Planejamento",
+    status: "Diagnóstico",
     description:
-      "Entendemos canais, equipe, fluxo atual, gargalos e oportunidades de automação.",
+      "Mapeamos canais, equipe, ferramentas, gargalos, volume de contatos e pontos de perda.",
   },
   {
     icon: Workflow,
-    title: "Desenho do fluxo",
+    title: "Arquitetura do fluxo",
     status: "Arquitetura",
     description:
-      "Mapeamos entradas, classificações, caminhos, mensagens, CRM, alertas e follow-ups.",
+      "Desenhamos entradas, regras, classificações, mensagens, CRM, alertas, exceções, documentação do fluxo e handoff.",
   },
   {
     icon: Layers3,
     title: "Implementação",
     status: "Configuração",
     description:
-      "Conectamos ferramentas, configuramos automações, IA, formulários, CRM e notificações.",
+      "Configuramos integrações, automações, IA, CRM, formulários, notificações e rotinas de follow-up.",
   },
   {
     icon: FileCheck2,
-    title: "Testes e ajustes",
+    title: "Testes e validação",
     status: "Validação",
     description:
-      "Validamos cenários reais, corrigimos exceções e refinamos linguagem, regras e prioridades.",
+      "Simulamos cenários reais, ajustamos linguagem, prioridades, exceções e limites da IA.",
   },
   {
     icon: CalendarCheck,
-    title: "Acompanhamento",
+    title: "Ativação e acompanhamento",
     status: "Ativação",
     description:
-      "Monitoramos funcionamento, ajustamos fluxos e evoluímos a estrutura conforme a operação cresce.",
+      "Publicamos o fluxo, monitoramos funcionamento e evoluímos a estrutura conforme a operação cresce.",
   },
 ];
 
 const resultCards = [
   {
     title: "Tempo de resposta",
-    description: "Mais clareza sobre quem precisa de retorno e qual ação vem primeiro.",
+    description: "Ajuda a dar clareza sobre quem precisa de retorno e qual ação vem primeiro.",
   },
   {
     title: "Controle dos leads",
@@ -245,7 +246,7 @@ const resultCards = [
   },
   {
     title: "Experiência do cliente",
-    description: "O atendimento fica mais rápido, consistente e contextualizado.",
+    description: "O atendimento tende a ficar mais rápido, consistente e contextualizado.",
   },
   {
     title: "Oportunidades esquecidas",
@@ -286,7 +287,7 @@ const plans = [
     highlighted: true,
   },
   {
-    title: "Max",
+    title: "Advanced",
     description:
       "Para empresas com operação mais robusta e necessidade de automação avançada.",
     items: [
@@ -305,24 +306,59 @@ const securityItems = [
   {
     icon: ShieldCheck,
     title: "Supervisão humana",
-    description: "A IA não substitui decisões sensíveis e pode encaminhar para a equipe quando necessário.",
+    description: "Decisões sensíveis podem ser encaminhadas para pessoas com contexto preservado.",
   },
   {
     icon: LockKeyhole,
     title: "Regras e limites",
-    description: "Fluxos são definidos com permissões, exceções e caminhos claros para cada cenário.",
+    description: "Fluxos operam com critérios definidos, exceções claras e caminhos seguros.",
   },
   {
     icon: Route,
     title: "Privacidade por desenho",
-    description: "Dados e mensagens seguem uma lógica de cuidado, rastreabilidade e uso necessário.",
+    description: "Dados e mensagens seguem lógica de cuidado, necessidade e rastreabilidade.",
+  },
+  {
+    icon: Shield,
+    title: "Boas práticas de LGPD",
+    description: "A estrutura pode seguir boas práticas de LGPD, sem prometer certificações inexistentes.",
+  },
+  {
+    icon: Handshake,
+    title: "Handoff seguro",
+    description: "A equipe recebe resumo, origem, interesse e próxima ação antes de assumir.",
   },
   {
     icon: ClipboardCheck,
-    title: "LGPD-ready",
-    description: "A estrutura pode ser preparada para boas práticas de LGPD, sem prometer certificações inexistentes.",
+    title: "Registro e rastreabilidade",
+    description: "Cada contato pode ganhar status, histórico e acompanhamento visível.",
   },
 ];
+
+function LeadJourneyStrip() {
+  return (
+    <section className="container py-8">
+      <Reveal>
+        <div className="glass-card rounded-[1.6rem] p-4">
+          <div className="grid gap-3 md:grid-cols-5">
+            {journeySteps.map(({ icon: Icon, title, description }, index) => (
+              <div className="relative rounded-2xl border border-white/10 bg-white/[0.035] p-4" key={title}>
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <span className="grid size-10 place-items-center rounded-xl bg-cyan-200/10 text-cyan-100">
+                    <Icon className="size-5" aria-hidden="true" />
+                  </span>
+                  <span className="text-xs font-semibold text-slate-500">0{index + 1}</span>
+                </div>
+                <h3 className="text-sm font-semibold text-white">{title}</h3>
+                <p className="mt-1 text-xs leading-5 text-slate-400">{description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
@@ -330,22 +366,22 @@ export default function Home() {
       <AnimatedGradientBackground />
       <Header />
       <main id="inicio">
-        <section className="container grid min-h-screen items-center gap-12 pb-20 pt-32 lg:grid-cols-[1.02fr_0.98fr] lg:pt-36">
+        <section className="container grid min-h-[calc(100vh-1rem)] items-center gap-10 pb-14 pt-28 lg:grid-cols-[0.96fr_1.04fr] lg:pt-32">
           <div>
             <Reveal>
-              <div className="mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-cyan-200/15 bg-cyan-200/[0.06] px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-100/80">
+              <div className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-cyan-200/15 bg-cyan-200/[0.06] px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-100/80">
                 <Sparkles className="size-4 shrink-0" aria-hidden="true" />
                 Implementação de automação e IA sob medida
               </div>
-              <h1 className="text-balance text-4xl font-semibold leading-[1.04] text-white sm:text-5xl lg:text-6xl">
-                Automação e IA para empresas que precisam atender melhor, vender com mais organização e perder menos oportunidades.
+              <h1 className="max-w-3xl text-balance text-4xl font-semibold leading-[1.04] text-white sm:text-5xl lg:text-[4.05rem] xl:text-[4.25rem]">
+                Automação e IA para transformar contatos dispersos em uma operação comercial organizada.
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-                A LR Digital implementa fluxos inteligentes para organizar contatos, qualificar leads, registrar informações, acionar equipes e manter follow-ups sem perder o controle humano do atendimento.
+                A LR Digital estrutura fluxos inteligentes para captar, classificar, registrar, direcionar e acompanhar leads com mais velocidade, contexto e controle humano.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button href={WHATSAPP_URL} size="lg" target="_blank" rel="noreferrer">
-                  Agendar conversa
+                <Button href={DIAGNOSTIC_URL} size="lg">
+                  Solicitar diagnóstico
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Button>
                 <Button href="#como-funciona" variant="secondary" size="lg">
@@ -357,57 +393,68 @@ export default function Home() {
               </p>
             </Reveal>
 
-            <Reveal delay={0.08} className="mt-8 flex flex-wrap gap-2">
-              {heroBadges.map((badge) => (
-                <span
-                  className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-2 text-xs font-medium text-slate-200"
-                  key={badge}
-                >
-                  {badge}
-                </span>
+            <Reveal delay={0.08} className="mt-8 grid gap-3 sm:grid-cols-3">
+              {heroIndicators.map((item) => (
+                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4" key={item.label}>
+                  <p className="text-sm font-semibold text-white">{item.label}</p>
+                  <p className="mt-1 text-xs text-slate-400">{item.detail}</p>
+                </div>
               ))}
             </Reveal>
           </div>
           <HeroAutomationPanel />
         </section>
 
-        <section className="container py-20">
+        <LeadJourneyStrip />
+
+        <section className="container py-16">
           <SectionHeader
             eyebrow="Problema"
             title="Empresas perdem oportunidades não por falta de leads, mas por falta de processo."
             description="Muitos contatos chegam pelo WhatsApp, site, Instagram, formulários e anúncios. Sem triagem, registro e acompanhamento, a equipe responde de forma manual, perde contexto e deixa oportunidades importantes sem retorno."
           />
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {problemCards.map((card, index) => (
-              <FeatureCard
-                {...card}
-                delay={index * 0.04}
-                key={card.title}
-              />
-            ))}
+          <div className="grid gap-4 lg:grid-cols-[1.1fr_1.4fr]">
+            <Reveal>
+              <article className="glass-card h-full rounded-[1.7rem] p-7">
+                <div className="mb-5 inline-flex size-12 items-center justify-center rounded-2xl border border-cyan-200/15 bg-cyan-200/10 text-cyan-100">
+                  <Radar className="size-6" aria-hidden="true" />
+                </div>
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200/70">
+                  O gargalo invisível
+                </p>
+                <h3 className="text-2xl font-semibold leading-tight text-white">
+                  O lead chega, mas o processo não acompanha.
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300">
+                  Mensagens ficam espalhadas, o contexto se perde e o follow-up depende de memória manual.
+                </p>
+              </article>
+            </Reveal>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {problemCards.map((card, index) => (
+                <FeatureCard {...card} delay={index * 0.04} key={card.title} />
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="como-funciona" className="container py-20">
+        <section id="como-funciona" className="container py-16">
           <SectionHeader
             eyebrow="Solução central"
             title="Uma camada inteligente entre seus canais de entrada e sua equipe."
             description="A LR Digital estrutura automações que recebem, organizam, classificam e encaminham contatos para a equipe certa, com dados limpos, contexto e próximos passos claros."
           />
           <AutomationFlowVisual />
-          <div className="mt-10">
-            <IntegrationGrid />
-          </div>
         </section>
 
-        <section id="solucoes" className="container py-20">
+        <section id="solucoes" className="container py-16">
           <SectionHeader
-            eyebrow="Soluções"
-            title="Soluções que podem ser combinadas conforme sua operação."
-            description="Cada módulo é desenhado para funcionar como parte de uma estrutura comercial integrada, não como uma automação solta."
+            eyebrow="Ecossistema LR Digital"
+            title="Um ecossistema de automação e IA para sua operação comercial."
+            description="Cada módulo pode ser implementado de forma independente ou combinado em um fluxo completo, de acordo com canais, equipe, volume de contatos e maturidade comercial."
           />
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {solutions.map((solution, index) => (
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {ecosystem.map((solution, index) => (
               <SolutionCard
                 {...solution}
                 index={`0${index + 1}`}
@@ -418,32 +465,33 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="aplicacoes" className="container py-20">
+        <section id="aplicacoes" className="container py-16">
           <SectionHeader
             eyebrow="Aplicações por nicho"
             title="Projetos adaptados ao tipo de operação."
-            description="O desenho do fluxo muda conforme canal, linguagem, prioridade, rotina da equipe e decisão comercial de cada segmento."
+            description="Cada segmento tem uma rotina comercial própria. O fluxo muda conforme canal, linguagem, prioridade, equipe e decisão de compra."
           />
           <div className="grid gap-4 md:grid-cols-2">
             {useCases.map((useCase, index) => (
-              <UseCaseCard
-                {...useCase}
-                delay={index * 0.04}
-                key={useCase.title}
-              />
+              <UseCaseCard {...useCase} delay={index * 0.04} key={useCase.title} />
             ))}
           </div>
         </section>
 
-        <section className="container py-20">
+        <section className="container py-16">
           <SectionHeader
             eyebrow="Diferencial"
             title="Não implementamos automação solta. Estruturamos processos inteligentes."
-            description="A IA não fica solta. Ela atua com regras, contexto e limites definidos."
+            description="Antes de automatizar, desenhamos o processo. Antes de usar IA, definimos contexto, limites e critérios de encaminhamento."
           />
+          <div className="mb-5 flex justify-center">
+            <div className="rounded-full border border-cyan-200/20 bg-cyan-200/10 px-4 py-2 text-sm font-semibold text-cyan-50">
+              IA com contexto, regras e supervisão humana.
+            </div>
+          </div>
           <div className="grid gap-5 lg:grid-cols-2">
             <Reveal>
-              <article className="rounded-[1.7rem] border border-white/10 bg-white/[0.035] p-6">
+              <article className="h-full rounded-[1.7rem] border border-white/10 bg-white/[0.03] p-6">
                 <h3 className="mb-5 text-2xl font-semibold text-white">Automação genérica</h3>
                 <div className="grid gap-3">
                   {genericAutomation.map((item) => (
@@ -458,12 +506,12 @@ export default function Home() {
               </article>
             </Reveal>
             <Reveal delay={0.08}>
-              <article className="glass-card rounded-[1.7rem] p-6 ring-1 ring-cyan-200/10">
+              <article className="glass-card h-full rounded-[1.7rem] p-6 ring-1 ring-cyan-200/10">
                 <h3 className="mb-5 text-2xl font-semibold text-white">LR Digital</h3>
                 <div className="grid gap-3">
                   {lrApproach.map((item) => (
-                    <div className="flex items-center gap-3 rounded-2xl bg-cyan-200/[0.055] p-3 text-sm text-slate-200" key={item}>
-                      <span className="grid size-7 shrink-0 place-items-center rounded-full bg-cyan-300/12 text-cyan-100">
+                    <div className="flex items-center gap-3 rounded-2xl border border-cyan-200/10 bg-cyan-200/[0.065] p-3 text-sm text-slate-100" key={item}>
+                      <span className="grid size-7 shrink-0 place-items-center rounded-full bg-cyan-300/15 text-cyan-100">
                         <CheckCircle2 className="size-4" aria-hidden="true" />
                       </span>
                       {item}
@@ -475,25 +523,20 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="processo" className="container py-20">
+        <section id="processo" className="container py-16">
           <SectionHeader
-            eyebrow="Projeto"
+            eyebrow="Processo"
             title="Da análise à implementação."
             description="A estrutura é pensada antes da ferramenta: primeiro entendemos o processo, depois conectamos automação, IA, CRM e equipe."
           />
-          <div className="grid gap-5 lg:grid-cols-5">
+          <div className="grid gap-4 lg:grid-cols-5">
             {processSteps.map((step, index) => (
-              <ProcessStep
-                {...step}
-                index={`0${index + 1}`}
-                delay={index * 0.04}
-                key={step.title}
-              />
+              <ProcessStep {...step} index={`0${index + 1}`} delay={index * 0.04} key={step.title} />
             ))}
           </div>
         </section>
 
-        <section className="container py-20">
+        <section className="container py-16">
           <SectionHeader
             eyebrow="Demo conceitual"
             title="Veja como um lead deixa de ser apenas uma mensagem e vira uma oportunidade organizada."
@@ -502,28 +545,39 @@ export default function Home() {
           <ConceptDemo />
         </section>
 
-        <section className="container py-20">
+        <section className="container py-16">
           <SectionHeader
             eyebrow="Resultados esperados"
             title="O que uma operação mais organizada tende a melhorar."
-            description="Os resultados dependem do cenário, volume de contatos e maturidade da operação, mas a estrutura permite que a empresa acompanhe melhor cada oportunidade e reduza falhas manuais."
+            description="Os resultados dependem do cenário, volume de contatos e maturidade da operação. A estrutura permite acompanhar melhor cada oportunidade e reduzir falhas manuais."
           />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {resultCards.map((result, index) => (
-              <MetricCard
-                {...result}
-                delay={index * 0.03}
-                key={result.title}
-              />
-            ))}
+          <div className="grid gap-4 lg:grid-cols-[0.9fr_1.4fr]">
+            <Reveal>
+              <article className="glass-card h-full rounded-[1.7rem] p-7">
+                <div className="mb-5 inline-flex size-12 items-center justify-center rounded-2xl border border-cyan-200/15 bg-cyan-200/10 text-cyan-100">
+                  <LineChart className="size-6" aria-hidden="true" />
+                </div>
+                <h3 className="text-2xl font-semibold leading-tight text-white">
+                  O ganho não vem apenas da automação.
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300">
+                  Ele vem da previsibilidade do processo: saber o que entrou, quem precisa agir, qual prioridade e qual próximo passo.
+                </p>
+              </article>
+            </Reveal>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {resultCards.map((result, index) => (
+                <MetricCard {...result} delay={index * 0.025} key={result.title} />
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="container py-20">
+        <section className="container py-16">
           <SectionHeader
             eyebrow="Formatos"
             title="Formatos de implementação."
-            description="Sem preço público nesta etapa: o escopo é definido por canais, integrações, volume, maturidade do processo e profundidade da IA."
+            description="Projetos sob medida, sem preço público nesta etapa. O escopo é definido após análise de canais, volume, ferramentas, equipe e nível de inteligência desejado."
           />
           <div className="grid gap-5 lg:grid-cols-3">
             {plans.map((plan, index) => (
@@ -537,7 +591,7 @@ export default function Home() {
                 >
                   {plan.highlighted && (
                     <span className="mb-4 w-fit rounded-full border border-cyan-200/20 bg-cyan-200/10 px-3 py-1 text-xs font-semibold text-cyan-100">
-                      Mais completo para operações multicanal
+                      Recomendado para operações multicanal
                     </span>
                   )}
                   <h3 className="text-2xl font-semibold text-white">{plan.title}</h3>
@@ -550,7 +604,7 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Button href={WHATSAPP_URL} variant={plan.highlighted ? "primary" : "secondary"} className="mt-7" target="_blank" rel="noreferrer">
+                  <Button href={DIAGNOSTIC_URL} variant={plan.highlighted ? "primary" : "secondary"} className="mt-7">
                     Solicitar diagnóstico
                     <ArrowRight className="size-4" aria-hidden="true" />
                   </Button>
@@ -560,24 +614,20 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="container py-20">
+        <section className="container py-16">
           <SectionHeader
             eyebrow="Segurança e controle"
             title="IA com contexto, limites e supervisão humana."
-            description="A tecnologia apoia o atendimento, organiza dados, resume conversas e encaminha tarefas. O humano continua no centro da decisão."
+            description="A IA atua dentro de limites definidos. Decisões sensíveis podem ser encaminhadas para a equipe humana, preservando contexto, controle e qualidade do atendimento."
           />
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {securityItems.map((item, index) => (
-              <FeatureCard
-                {...item}
-                delay={index * 0.04}
-                key={item.title}
-              />
+              <FeatureCard {...item} delay={index * 0.035} key={item.title} />
             ))}
           </div>
         </section>
 
-        <section id="faq" className="container py-20">
+        <section id="faq" className="container py-16">
           <SectionHeader
             eyebrow="FAQ"
             title="Perguntas frequentes."

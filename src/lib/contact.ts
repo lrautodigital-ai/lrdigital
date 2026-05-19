@@ -1,6 +1,13 @@
-export const WHATSAPP_URL =
-  "https://wa.me/5500000000000?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20conversa%20sobre%20automa%C3%A7%C3%A3o%20e%20IA%20para%20minha%20empresa.";
+// Preencha estes campos quando os canais oficiais da LR Digital estiverem definidos.
+// Enquanto estiverem vazios, o site evita publicar links falsos de WhatsApp/redes sociais.
+export const WHATSAPP_URL = "";
+export const CONTACT_EMAIL = "";
+export const INSTAGRAM_URL = "";
+export const LINKEDIN_URL = "";
 
-export const CONTACT_EMAIL = "contato@lrdigital.com.br";
-export const INSTAGRAM_URL = "https://instagram.com/lrdigital";
-export const LINKEDIN_URL = "https://linkedin.com/company/lrdigital";
+export const DIAGNOSTIC_URL = WHATSAPP_URL || "#contato";
+
+export const hasWhatsApp = Boolean(WHATSAPP_URL);
+export const hasEmail = Boolean(CONTACT_EMAIL);
+export const hasInstagram = Boolean(INSTAGRAM_URL);
+export const hasLinkedIn = Boolean(LINKEDIN_URL);
