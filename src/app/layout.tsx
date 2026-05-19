@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { assetPath, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lrdigital.com.br"),
+  metadataBase: new URL(SITE_URL),
   title: "LR Digital | Automação e IA para Empresas",
   description:
     "Automação comercial e IA aplicada para organizar atendimento, leads, CRM, WhatsApp, triagem e follow-up em empresas.",
@@ -21,11 +22,11 @@ export const metadata: Metadata = {
     title: "LR Digital | Automação e IA para Empresas",
     description:
       "Automação comercial e IA aplicada para organizar atendimento, leads, CRM, WhatsApp, triagem e follow-up em empresas.",
-    url: "https://lrdigital.com.br",
+    url: SITE_URL,
     siteName: "LR Digital",
     images: [
       {
-        url: "/brand/lr-v2-symbol-reverse-2048.png",
+        url: assetPath("/brand/lr-v2-symbol-reverse-2048.png"),
         width: 1200,
         height: 1200,
         alt: "Símbolo LR Digital",
@@ -39,12 +40,12 @@ export const metadata: Metadata = {
     title: "LR Digital | Automação e IA para Empresas",
     description:
       "Automação comercial e IA aplicada para organizar atendimento, leads, CRM, WhatsApp, triagem e follow-up em empresas.",
-    images: ["/brand/lr-v2-symbol-reverse-2048.png"],
+    images: [assetPath("/brand/lr-v2-symbol-reverse-2048.png")],
   },
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    shortcut: "/favicon.svg",
-    apple: "/brand/lr-v2-symbol-reverse-2048.png",
+    icon: [{ url: assetPath("/favicon.svg"), type: "image/svg+xml" }],
+    shortcut: assetPath("/favicon.svg"),
+    apple: assetPath("/brand/lr-v2-symbol-reverse-2048.png"),
   },
 };
 

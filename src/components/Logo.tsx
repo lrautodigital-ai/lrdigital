@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
@@ -15,7 +16,7 @@ export function Logo({ className, compact = false }: LogoProps) {
     >
       <span className="grid size-10 place-items-center rounded-xl border border-white/10 bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,.12)]">
         <Image
-          src="/brand/lr-v2-symbol-reverse.svg"
+          src={assetPath("/brand/lr-v2-symbol-reverse.svg")}
           alt="Símbolo LR Digital"
           width={24}
           height={24}
