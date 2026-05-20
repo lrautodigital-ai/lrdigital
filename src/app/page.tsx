@@ -688,7 +688,7 @@ export default function Home() {
           <SectionHeader
             eyebrow="Demo conceitual"
             title="Veja como um lead deixa de ser apenas uma mensagem e vira uma oportunidade organizada."
-            description="O painel abaixo é uma representação visual do tipo de estrutura operacional que a LR Digital implementa."
+            description="Cada etapa abaixo representa uma parte do fluxo que pode ser implementado: entrada do contato, leitura com IA, CRM atualizado, equipe acionada e follow-up estruturado."
           />
           <ConceptDemo />
         </section>
